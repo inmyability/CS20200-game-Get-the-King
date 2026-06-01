@@ -47,72 +47,57 @@ Enemy Palace
 
 ## Horse (마) and Leg Blocking
 
-The horse moves one step straight and then one step diagonally.
+The horse moves in an L-shape, but the first straight point must be empty.
 
 ```text
-Possible horse movement:
-
-    X
-  X   X
-    H
-  X   X
-    X
+┌───┬───┬───┬───┬───┐
+│   │ X │   │ X │   │
+├───┼───┼───┼───┼───┤
+│ X │   │ B │   │ X │
+├───┼───┼───┼───┼───┤
+│   │ B │ H │ B │   │
+├───┼───┼───┼───┼───┤
+│ X │   │ B │   │ X │
+├───┼───┼───┼───┼───┤
+│   │ X │   │ X │   │
+└───┴───┴───┴───┴───┘
 ```
 
-However, if the first straight step is occupied, the horse cannot move in that direction.
+- `H` : horse position
+- `X` : possible destination
+- `B` : blocking point
 
-Example:
-
-```text
-Blocked horse movement
-
-    .
-    #   <- blocking piece
-    H
-```
-
-The horse cannot move upward because the adjacent square is blocked.
+If a blocking point is occupied, the two destinations behind it become unavailable.
 
 ---
 
 ## Elephant (상) and Blocking
 
-The elephant moves three points horizontally and two vertically,
-or three vertically and two horizontally.
+The elephant moves farther than the horse and checks two intermediate positions.
 
 ```text
-Example elephant movement:
-
-        X
-
-   X         X
-
-        E
-
-   X         X
-
-        X
+┌───┬───┬───┬───┬───┬───┬───┐
+│   │   │ X │   │ X │   │   │
+├───┼───┼───┼───┼───┼───┼───┤
+│ X │   │   │ B │   │   │ X │
+├───┼───┼───┼───┼───┼───┼───┤
+│   │ B │ B │   │ B │ B │   │
+├───┼───┼───┼───┼───┼───┼───┤
+│   │   │   │ E │   │   │   │
+├───┼───┼───┼───┼───┼───┼───┤
+│   │ B │ B │   │ B │ B │   │
+├───┼───┼───┼───┼───┼───┼───┤
+│ X │   │   │ B │   │   │ X │
+├───┼───┼───┼───┼───┼───┼───┤
+│   │   │ X │   │ X │   │   │
+└───┴───┴───┴───┴───┴───┴───┘
 ```
 
-Unlike the horse, the elephant checks TWO intermediate positions.
-If either position is occupied, the movement is blocked.
+- `E` : elephant position
+- `X` : possible destination
+- `B` : intermediate blocking points
 
-Example:
-
-```text
-Blocked elephant movement
-
-      target
-        X
-
-        #   <- blocking piece
-
-    #
-
-        E
-```
-
-The elephant cannot move because one of the intermediate positions is occupied.
+The elephant move is blocked if either intermediate position is occupied.
 
 ---
 
