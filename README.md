@@ -137,8 +137,11 @@ R ───────── X
 
 ---
 
-## Edit puzzles
-Difficulty-specific puzzle layouts are in `Board.fs`, inside `createInitialBoard`.
 
 ## Requirement change log
 The original proposal used 9 x 7, but the implementation uses 9 x 10 because real Janggi uses a 9 x 10 board.
+
+## LLM usage
+I used LLM for building the Janggi board, which I didn't have any idea for especially the palace.
+It also gave help when building when the game ends.
+However, I had to deal with the details of the moves of the pieces, which LLM didn't seem to understand.
