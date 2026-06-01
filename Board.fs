@@ -17,8 +17,6 @@ module Board =
         match difficulty with
         | Easy ->
             putPiece board 4 1 Enemy King
-            putPiece board 3 0 Enemy Guard
-            putPiece board 5 0 Enemy Guard
             putPiece board 4 8 User King
             putPiece board 3 9 User Guard
             putPiece board 5 9 User Guard
